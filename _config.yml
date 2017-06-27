@@ -1,0 +1,27 @@
+permalink: /:year/:month/:day/:title
+markdown: kramdown
+
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+highlighter: pygments
+paginate: 5
+paginate_path: "news/page/:num"
+excerpt_separator: "\n\n\n"
+
+title : EasyLicense
+description: EasyLicense is an open-source license tool for .NET applications.
+repo : "https://github.com/easyHelper/EasyLicense"
+author:
+  name: QiWang
+  email: qiwang0@qq.com
+
+production_url : //easyHelper.github.io/EasyLicense
+
+JB :
+  version : 0.3.0
+  BASE_PATH : //easyHelper.github.io/EasyLicense
+
+  ASSET_PATH : false
+
+  archive_path: /archive/
+  atom_path : /atom.xml
+  rss_path : /rss.xml
