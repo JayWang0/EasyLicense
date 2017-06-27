@@ -7,17 +7,15 @@ namespace EasyLicense.Lib
 	{
 		private static Dictionary<string, int> _countLimits = new Dictionary<string, int>();
 		private Dictionary<string, int> _counts = new Dictionary<string, int>();
-		private bool _startCount;
-
+		
 		public CountManager()
 		{
-			_startCount = false;
 			_counts = new Dictionary<string, int>();
 		}
 
-		public static event Action<string> ExceedLimitation = str => { };
+		public event Action<string> ExceedLimitation = str => { };
 
-		public static void Initialize(Dictionary<string, int> limits)
+		public void Initialize(Dictionary<string, int> limits)
 		{
 			_countLimits = limits;
 		}
@@ -57,22 +55,15 @@ namespace EasyLicense.Lib
 
 		public void IncreaseCount(string name)
 		{
-			if (_startCount)
-				if (_counts.ContainsKey(name))
-					_counts[name] += 1;
-				else
-					ResetCount(name);
+			if (_counts.ContainsKey(name))
+				_counts[name] += 1;
+			else
+				ResetCount(name);
 		}
 
 		public void ResetCount(string name)
 		{
-			_counts[name] = 1;
-		}
-
-		public void StartCount()
-		{
-			_startCount = true;
-			_counts = new Dictionary<string, int>();
+			_counts[name] = 0;
 		}
 
 		public void TriggerExceedLimitationEvent(string name)

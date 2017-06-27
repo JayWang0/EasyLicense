@@ -45,8 +45,7 @@ namespace EasyLicense.Lib.License.Validator
 			{
 				if (string.IsNullOrEmpty(inMemoryLicense))
 				{
-					var encryptedString = File.ReadAllText(licensePath);
-					return new CryptoHelper("ABCDEFGHIJKLMNOP").Decrypt(encryptedString);
+					return File.ReadAllText(licensePath);
 				}
 				return inMemoryLicense;
 			}
@@ -55,8 +54,7 @@ namespace EasyLicense.Lib.License.Validator
 			{
 				try
 				{
-					var content = new CryptoHelper("ABCDEFGHIJKLMNOP").Encrypt(value);
-					File.WriteAllText(licensePath, content);
+					File.WriteAllText(licensePath, value);
 				}
 				catch
 				{

@@ -7,8 +7,9 @@
 			<RowDefinition Height="Auto" />
 			<RowDefinition Height="*" />
 		</Grid.RowDefinitions>
-		<StackPanel>
-			<Button x:Name="btnGenerateLicense" Click="btnGenerateLicense_Click">Generate License</Button>
+		<StackPanel Orientation="Horizontal">
+			<Button x:Name="btnGenerateLicenseKey" Click="btnGenerateLicenseKey_Click" Margin="5">Generate Key</Button>
+			<Button x:Name="btnGenerateLicense" Click="btnGenerateLicense_Click" Margin="5" IsDefault="True">Generate License</Button>
 		</StackPanel>
 
 		<TextBox x:Name="txtLicense" Grid.Row="1" TextWrapping="Wrap" />

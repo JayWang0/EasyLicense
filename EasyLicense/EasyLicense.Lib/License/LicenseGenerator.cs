@@ -149,5 +149,14 @@ namespace EasyLicense.Lib.License
 			signedXml.ComputeSignature();
 			return signedXml.GetXml();
 		}
+
+		public static void GenerateLicenseKey(out string privateKey, out string publicKey)
+		{
+			using (var rsa = new RSACryptoServiceProvider())
+			{
+				privateKey = rsa.ToXmlString(true);
+				publicKey = rsa.ToXmlString(false);
+			}
+		}
 	}
 }
