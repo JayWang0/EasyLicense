@@ -53,6 +53,10 @@ Donation
 ---------
 If you find EasyLicense is useful to you, feel free to support the project by making a donation!  
 
+[paypal](https://paypal.me/easyhelper)!
+[paypal](https://paypal.me/easyhelper)!
+[paypal](https://paypal.me/easyhelper)!
+
 ---
 <div class="row">
   <div class="col-md-6">
