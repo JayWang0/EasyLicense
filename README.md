@@ -14,6 +14,7 @@ EasyLicense is an open-source license tool for .NET applications.
     <small>Demo Project</small>
   </div>
 </div>
+
 ---
 
 Features
@@ -50,16 +51,19 @@ You could also contribute to the project by creating pull requests and [reportin
 Donation
 ---------
 If you find EasyLicense is useful to you, feel free to support the project by making a donation!  
-[paypal](https://paypal.me/easyhelper)
 ---
-<div class="row">
-  <div class="col-md-6">
-    <img class="img-responsive" alt="Screenshot of License Tool" src="https://easyhelper.github.io/EasyLicense/assets/zhifubao.png" style="height: 300px">
-    <small>支付宝</small>
-  </div>
-  <div class="col-md-6">
-    <img class="img-responsive" alt="Screenshot of Demo Project" src="https://easyhelper.github.io/EasyLicense/assets/weixin.png" style="height: 300px">
-    <small>微信</small>
-  </div>
-</div>
+<ol>
+  <li>
+    <p>PayPal：请点击[<a href="https://paypal.me/easyhelper/5">PayPal 付款链接</a>]</p>
+  </li>
+  <li>
+    <p>支付宝：请扫描二维码，收款人是我家人的账号</p>
+    <img src="https://easyhelper.github.io/EasyLicense/assets/zhifubao.png" alt="">
+  </li>
+  <li>
+    <p>微信支付：请扫描二维码。如果你没有以上两种方式才考虑使用这个方式。</p>
+    <img src="https://easyhelper.github.io/EasyLicense/assets/weixin.png" width="200">
+  </li>
+</ol>
+
 ---
