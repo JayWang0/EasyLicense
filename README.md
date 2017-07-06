@@ -42,9 +42,14 @@ It might be helpful to read the [FAQ](https://easyhelper.github.io/EasyLicense/f
 
 Contribution
 ------------
+
 EasyLicense is licensed under [MIT license](http://opensource.org/licenses/MIT), 
 so you're free to fork and modify it to suit your need!
 You could also contribute to the project by creating pull requests and [reporting bugs](https://easyhelper.github.io/EasyLicense/issues/)!
+
+EasyLicense use some code from rhino-licensing
+
+[https://github.com/ayende/rhino-licensing](https://github.com/ayende/rhino-licensing)!
 
 ---
 
