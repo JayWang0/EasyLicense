@@ -5,6 +5,7 @@
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
 			<RowDefinition Height="*" />
 		</Grid.RowDefinitions>
 		<StackPanel Orientation="Horizontal">
@@ -12,6 +13,33 @@
 			<Button x:Name="btnGenerateLicense" Click="btnGenerateLicense_Click" Margin="5" IsDefault="True">Generate License</Button>
 		</StackPanel>
 
-		<TextBox x:Name="txtLicense" Grid.Row="1" TextWrapping="Wrap" />
+		<Grid Grid.Row="1" Margin="5">
+
+			<Grid.Resources>
+				<Style TargetType="Label">
+					<Setter Property="Padding" Value="2"/>
+ 				</Style>
+				<Style TargetType="TextBox">
+					<Setter Property="Padding" Value="2"/>
+				</Style>
+			</Grid.Resources>
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="120" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+
+			<Label Content="Name:" Grid.Row="0" Grid.Column="0" />
+			<TextBox x:Name="txtName" Grid.Row="0" Grid.Column="1" />
+			<Label Content="Computer Key:" Grid.Row="1" Grid.Column="0" />
+			<TextBox x:Name="txtComputerKey" Grid.Row="1" Grid.Column="1" />
+		</Grid>
+
+		<TextBox x:Name="txtLicense" Grid.Row="2" TextWrapping="Wrap" />
+
 	</Grid>
 </Window>

@@ -17,6 +17,8 @@ namespace EasyLicense.LicenseTool
 		public MainWindow()
 		{
 			InitializeComponent();
+
+			txtComputerKey.Text = new HardwareInfo().GetHardwareString();
 		}
 
 		private void btnGenerateLicense_Click(object sender, RoutedEventArgs e)
@@ -34,20 +36,31 @@ namespace EasyLicense.LicenseTool
 				return;
 			}
 
+			if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtComputerKey.Text))
+			{
+				MessageBox.Show("Some field is missing");
+				return;
+			}
+
 			var privateKey = File.ReadAllText(@"privateKey.xml");
 			var generator = new LicenseGenerator(privateKey);
 
-			var dictionary = new Dictionary<string, string>();
+			var dict = new Dictionary<string, string>();
+
+			dict["name"] = txtName.Text;
+			dict["key"] = txtComputerKey.Text;
 
 			// generate the license
-			var license = generator.Generate("EasyLicense", Guid.NewGuid(), DateTime.UtcNow.AddYears(1), dictionary,
+			var license = generator.Generate("EasyLicense", Guid.NewGuid(), DateTime.UtcNow.AddYears(1), dict,
 				LicenseType.Standard);
 			
 			txtLicense.Text = license;
 			File.WriteAllText("license.lic", license);
+
+			File.AppendAllText("license.log", $"License to {dict["name"]}, key is {dict["key"]}, Date is {DateTime.Now}");
 		}
 
-		private static void ValidateLicense()
+		private void ValidateLicense()
 		{
 			if (!File.Exists("publicKey.xml"))
 			{
@@ -62,6 +75,14 @@ namespace EasyLicense.LicenseTool
 			try
 			{
 				validator.AssertValidLicense();
+
+				var dict = validator.LicenseAttributes;
+				MessageBox.Show($"License to {dict["name"]}, key is {dict["key"]}");
+
+				if (dict["key"] != txtComputerKey.Text)
+				{
+					MessageBox.Show("invalid!");
+				}
 			}
 			catch (Exception ex)
 			{
